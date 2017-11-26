@@ -12,7 +12,15 @@ class HomeController < ApplicationController
     @yaml_obj = yamlFile.getYamlList()
     thinhelper = ThinreportHelper.new(@yaml_obj)
     # binding.pry
-    thinhelper.gen_pdf("app/assets/jis_rireki0.tlf")
+    @file_name = "jis_rireki0"
+    report = thinhelper.gen_pdf("app/assets/#{@file_name}.tlf")
+    # binding.pry
+    # @file_name = "tes.pdf"
+
+    send_data report.generate,
+              filename:    "#{@file_name}.pdf",
+              type:        "application/pdf",
+              disposition: "inline"
 
     # thinhelper = ThinreportHelper.init_use_file("../Profile.yml")
     # thinhelper.gen_pdf("jis_rireki0.tlf")

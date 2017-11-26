@@ -2,7 +2,7 @@
 
 require 'thinreports'
 require 'yaml'
-
+require 'pry'
 
 class ThinreportHelper
   def initialize(yaml_obj)
@@ -44,7 +44,9 @@ class ThinreportHelper
       report.page.item("history"+counter.to_s).value(detail)
       ++counter
     }
-    report.generate(filename: @file_name)
+    # report.generate(filename: @file_name)
+    return report
+
     puts "Done"
   end
 end
