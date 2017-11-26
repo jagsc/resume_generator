@@ -8,9 +8,7 @@
       YMLファイルからを履歴書にエクスポートする
       <input type="file" style="display:none">
       <%= form_tag 'home/receiveFile',:id=>'yamlFile', :multipart =>true do %>
-        <label>保存したいファイル:<br/>
         <%= file_field_tag :uppic, :size => 100, :onchange => 'submmit()'%></label>
-        <%= submit_tag 'アップロード',class: "topSubmitButton" %>
       <% end %>
 
     </label>
