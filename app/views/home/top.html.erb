@@ -7,6 +7,12 @@
     <label class="btn btn-primary">
       YMLファイルからを履歴書にエクスポートする
       <input type="file" style="display:none">
+      <%= form_tag 'home/receiveFile', :multipart =>true do %>
+        <label>保存したいファイル:<br/>
+        <%= file_field_tag :uppic, :size => 100 %></label>
+        <%= submit_tag 'アップロード' %>
+      <% end %>
+
     </label>
   </dev>
   <%= image_tag 'top.jpg' %>
