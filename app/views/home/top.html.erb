@@ -3,13 +3,19 @@
 <div class="topImg">
   <dev id="logo">
     <p>もっと手軽に様々な形式へ</p>
-    <img src="./logo-4.png"/>
+    <%= image_tag 'topLogo.png' %>
     <label class="btn btn-primary">
       YMLファイルからを履歴書にエクスポートする
       <input type="file" style="display:none">
+      <%= form_tag 'home/receiveFile', :multipart =>true do %>
+        <label>保存したいファイル:<br/>
+        <%= file_field_tag :uppic, :size => 100 %></label>
+        <%= submit_tag 'アップロード' %>
+      <% end %>
+
     </label>
   </dev>
-  <img src="./top.jpg" />
+  <%= image_tag 'top.jpg' %>
 
   <i class="fa fa-youtube" ></i>
 </div>
